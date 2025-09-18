@@ -1,0 +1,36 @@
+    "tasks": {
+      "type": "array",
+      "description": "Collection of task documents",
+      "items": {
+        "type": "object",
+        "title": "Task Document",
+        "properties": {
+          "completed": {
+            "type": "boolean",
+            "description": "Whether the task is completed"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Time the task was created"
+          },
+          "details": {
+            "type": "string",
+            "description": "Detailed description of the task"
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the task"
+          },
+          "user": {
+            "type": "string",
+            "pattern": "^/users/[A-Za-z0-9_-]+$",
+            "description": "Reference to a user document"
+          }
+        },
+        "required": ["completed", "created", "title", "user"]
+      }
+    }
+  },
+  "required": ["users", "tasks"]
+}
