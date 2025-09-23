@@ -1,6 +1,4 @@
-"required": ["users", "tasks"]
-}
-{
+"required": ["users", "tasks"] {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.com/firestore-todo.schema.json",
   "title": "Firestore ToDo App Schema",
