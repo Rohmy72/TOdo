@@ -1,13 +1,32 @@
 {
   "project_info": {
-    "project_number": "641494550549",
-    "project_id": "to-do-app-d0ac2",
-    "storage_bucket": "to-do-app-d0ac2.firebasestorage.app"
+    "project_number": "609605364213",
+    "project_id": "my-ai-9ebb9",
+    "storage_bucket": "my-ai-9ebb9.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:641494550549:android:82a6594c0fd40d87efe61c",
+        "mobilesdk_app_id": "1:609605364213:android:73fa27a893d66bbcf518bc",
+        "android_client_info": {
+          "package_name": "com.mycompany.randomnumbergenerator"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8vynKDBR3Bfx394D4McCtjywmyoh0c3U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:609605364213:android:8c78ce70d23a3088f518bc",
         "android_client_info": {
           "package_name": "com.mycompany.todoapp"
         }
@@ -15,7 +34,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAvXGGbw_PQ0htNl68bAnMXXOU3BGc4QAA"
+          "current_key": "AIzaSyB8vynKDBR3Bfx394D4McCtjywmyoh0c3U"
         }
       ],
       "services": {

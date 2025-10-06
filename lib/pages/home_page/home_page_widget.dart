@@ -1,10 +1,12 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
@@ -29,6 +31,15 @@ class _HomePageWidgetState extends State<HomePageWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => HomePageModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.apiResultm1u = await GetZenQuoteCall.call();
+
+      if ((_model.apiResultm1u?.succeeded ?? true)) {
+        safeSetState(() {});
+      }
+    });
 
     _model.tabBarController = TabController(
       vsync: this,
@@ -86,6 +97,61 @@ class _HomePageWidgetState extends State<HomePageWidget>
                     'assets/images/rohms-tasks-high-resolution-logo-transparent.png',
                     width: 120.0,
                     fit: BoxFit.fitWidth,
+                  ),
+                ),
+                Align(
+                  alignment: AlignmentDirectional(0.0, -1.0),
+                  child: Text(
+                    valueOrDefault<String>(
+                      GetZenQuoteCall.quote(
+                        (_model.apiResultm1u?.jsonBody ?? ''),
+                      ),
+                      'Quote',
+                    ),
+                    style: FlutterFlowTheme.of(context).titleMedium.override(
+                          font: GoogleFonts.interTight(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .titleMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .titleMedium
+                                .fontStyle,
+                          ),
+                          letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .titleMedium
+                              .fontWeight,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .titleMedium
+                              .fontStyle,
+                        ),
+                  ),
+                ),
+                Align(
+                  alignment: AlignmentDirectional(0.0, -1.0),
+                  child: Text(
+                    valueOrDefault<String>(
+                      GetZenQuoteCall.author(
+                        (_model.apiResultm1u?.jsonBody ?? ''),
+                      ),
+                      'Author',
+                    ),
+                    style: FlutterFlowTheme.of(context).titleSmall.override(
+                          font: GoogleFonts.interTight(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .fontStyle,
+                          ),
+                          letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .titleSmall
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                        ),
                   ),
                 ),
                 Container(
